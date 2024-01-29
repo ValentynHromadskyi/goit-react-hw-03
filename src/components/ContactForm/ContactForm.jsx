@@ -42,7 +42,7 @@ export function ContactForm({ onAdd }) {
             <label htmlFor={numberId}>Number</label>
             <Field
               className={css.input}
-              type="text"
+              type="tel"
               name="number"
               id={numberId}
             />
