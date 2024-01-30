@@ -11,6 +11,10 @@ function App() {
   const [nameFilter, setNameFilter] = useState("");
   const [contacts, setContacts] = useState(initialContacts);
 
+  useEffect(() => {
+    window.localStorage.setItem("savedContacts", JSON.stringify(contacts));
+  }, [contacts]);
+
   const addContact = (newContact) => {
     setContacts((prevContacts) => {
       return [...prevContacts, newContact];
@@ -22,10 +26,6 @@ function App() {
       return prevUsers.filter((contact) => contact.id !== contactId);
     });
   };
-
-  useEffect(() => {
-    window.localStorage.setItem("savedContacts", JSON.stringify(contacts));
-  }, [contacts]);
 
   const visibleContacts = contacts.filter((contact) =>
     contact.name.toLowerCase().includes(nameFilter.toLowerCase())

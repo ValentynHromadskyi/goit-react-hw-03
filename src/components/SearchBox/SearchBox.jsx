@@ -1,8 +1,8 @@
+import { useId } from "react";
 import css from "./SearchBox.module.css";
-import { nanoid } from "nanoid";
 
 export function SearchBox({ value, onChange }) {
-  const inputId = nanoid(2);
+  const inputId = useId();
   return (
     <div className={css.searchForm}>
       <label htmlFor={inputId}>Find contacts by name</label>
